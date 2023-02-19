@@ -14,17 +14,17 @@ templates = Jinja2Templates(directory="templates")
 # Mount the 'static' and 'templates' directories to serve static files and templates
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.get("/")
+@app.get("/", name="home")
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-@app.get("/sync-site")
+@app.get("/sync-site", name="sync")
 async def index(request: Request):
 
     return templates.TemplateResponse("process.html", {"request": request})
 
-@app.post("/sync-site", response_class=HTMLResponse)
+@app.post("/sync-site", response_class=HTMLResponse, name="sync")
 async def sync_site(request: Request, url_input: str = Form()):
     # Here you can do something with the submitted URL
     if url_input != "":
