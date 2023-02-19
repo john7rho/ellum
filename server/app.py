@@ -8,6 +8,7 @@ from botocore.exceptions import ClientError
  
 app = FastAPI()
  
+templates = Jinja2Templates(directory="templates")
 
 # Mount the 'static' and 'templates' directories to serve static files and templates
 app.mount("/static", StaticFiles(directory="static"), name="static")
