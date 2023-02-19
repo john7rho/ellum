@@ -107,14 +107,14 @@ async def transcribe_audio(language_code: str, websocket: WebSocket):
                                 pass
 
                         # Synthesize speech from the transcript using Amazon Polly
-                        response = polly_client.synthesize_speech(
+                        response_polly = polly_client.synthesize_speech(
                             Text=#
                             OutputFormat='pcm',
                             VoiceId='Joanna'
                         )
 
                         # Convert the audio stream to a byte stream
-                        audio_stream = response['AudioStream'].read()
+                        audio_stream = response_polly['AudioStream'].read()
 
                         # Yield the audio stream to the client
                         #yield BytesIO(audio_stream).read()
