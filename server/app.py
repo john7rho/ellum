@@ -81,7 +81,7 @@ async def transcribe_audio(language_code: str, websocket: WebSocket):
             results = response.get("Transcript", {}).get("Results", [])
 
             for result in results:
-                if result.get("Alternatives"):
+                if result.get("IsPartial") == False and result.get("Alternatives"):
                     new_transcript = result["Alternatives"][0]["Transcript"]
                     confidence = result["Alternatives"][0]["Confidence"]
                     transcript += new_transcript
