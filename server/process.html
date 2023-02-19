@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Add your website | Turn websites into support agents</title>
+    <title>Add your website | Automate support in your sleep.</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/tailwind/tailwind.min.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='images/white.png') }}">
+
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
 </head>
 <body class="antialiased bg-body text-body font-body">
     <div class="">
@@ -20,7 +21,7 @@
             <div class="flex flex-wrap items-center">
               <div class="w-auto mr-14">
                 <a href="#">
-                  <img src="gradia-assets/logos/gradia-name-black.svg" alt="">
+                  <img src="{{ url_for('static', path='gradia-assets/logos/gradia-name-black.svg') }}" alt="">FIX
                 </a>
               </div>
             </div>
@@ -62,7 +63,7 @@
                 <div class="flex items-center justify-between -m-2">
                   <div class="w-auto p-2">
                     <a class="inline-block" href="#">
-                      <img src="gradia-assets/logos/gradia-name-black.svg" alt="">
+                      <img src="{{ url_for('static', path='gradia-assets/logos/gradia-name-black.svg') }}" alt="">
                     </a>
                   </div>
                   <div class="w-auto p-2">
@@ -107,9 +108,9 @@
       </section>
                 
       <section class="relative pt-16 pb-36 bg-gradient-gray2 overflow-hidden">
-        <img class="absolute top-0 transform left-1/2 -translate-x-1/2" src="gradia-assets/elements/sign-up/radial2.svg" alt="">
+        <img class="absolute top-0 transform left-1/2 -translate-x-1/2" src="{{ url_for('static', path='gradia-assets/elements/sign-up/radial2.svg') }}" alt="">
         <div class="relative z-10 container mx-auto px-4">
-          <img class="mx-auto mb-40" src="gradia-assets/logos/gradia-name-black.svg" alt="">
+          <img class="mx-auto mb-40" src="{{ url_for('static', path='gradia-assets/logos/gradia-name-black.svg') }}" alt="">
           <div class="flex flex-wrap -m-6">
             <div class="w-full p-6">
               <div class="md:max-w-xl text-center mx-auto">
@@ -160,13 +161,13 @@
                 
      
       <section class="relative py-24 overflow-hidden">
-        <img class="absolute bottom-0 left-0" src="gradia-assets/elements/footers/radial.svg" alt="">
+        <img class="absolute bottom-0 left-0" src="{{ url_for('static', path='gradia-assets/elements/footers/radial.svg') }}" alt="">
         <div class="relative z-10 container mx-auto px-4">
           <div class="flex flex-wrap -m-6">
             <div class="w-full md:w-1/2 lg:w-5/12 p-6">
               <div class="flex flex-col justify-between h-full">
                 <div>
-                  <img class="mb-16 h-16" src="images/black.png" alt="">
+                  <img class="mb-16 h-16" src="{{ url_for('static', path='images/black.png') }}" alt="">
                 </div>
                 <div>
                   <p class="mb-4 font-heading font-medium text-base">Support while you sleep.</p>

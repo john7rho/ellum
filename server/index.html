@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Ellum | Turn websites into support agents</title>
+    <title>Ellum | Automate support in your sleep.</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
-    <script src="js/main.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='images/black.png') }}">
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
 </head>
 <body class="antialiased bg-body text-body font-body">
     <div class="">
@@ -18,7 +18,7 @@
         <div class="w-auto">
           <div class="flex flex-wrap items-center">
             <div class="w-auto mr-14">
-              <img src="images/white.png" alt="white" class="h-16 inline-flex"><p class="text-white inline-flex text-3xl ml-2"> Ellum</p>
+              <img src="{{ url_for('static', path='images/white.png') }}" alt="white" class="h-16 inline-flex"><p class="text-white inline-flex text-3xl ml-2"> Ellum</p>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="w-full">
               <div class="flex items-center justify-between -m-2">
                 <div class="w-auto p-2">
-                  <a class="inline-block" href="#"><img src="gradia-assets/logos/gradia-name-black.svg" alt="gradia-name-black"></a>
+                  <a class="inline-block" href="#"><img src="{{ url_for('static', path='gradia-assets/logos/gradia-name-black.svg') }}" alt="gradia-name-black"></a>
                 </div>
                 <div class="w-auto p-2">
                   <a class="navbar-burger" href="#"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
@@ -94,8 +94,8 @@
             </div>
           </nav></div>
         </section><div class="relative container mx-auto px-4">
-        <img class="hidden xl:block absolute bottom-64 left-56 transform -translate-y-4" src="gradia-assets/elements/hero/line2.svg" alt="line2"><img class="hidden xl:block absolute bottom-64 right-56 transform -translate-y-28" src="gradia-assets/elements/hero/line3.svg" alt="line3"><div class="relative z-10 flex flex-wrap justify-center items-center -m-6 lg:pt-32 pb-36">
-        <div class="w-full lg:w-auto p-6 self-start"><img class="xl:relative xl:-top-20 mx-auto" src="gradia-assets/images/hero/avatar-message.png" alt="avatar-message"></div>
+        <img class="hidden xl:block absolute bottom-64 left-56 transform -translate-y-4" src="{{ url_for('static', path='gradia-assets/elements/hero/line2.svg') }}" alt="line2"><img class="hidden xl:block absolute bottom-64 right-56 transform -translate-y-28" src="{{ url_for('static', path='gradia-assets/elements/hero/line3.svg') }}" alt="line3"><div class="relative z-10 flex flex-wrap justify-center items-center -m-6 lg:pt-32 pb-36">
+        <div class="w-full lg:w-auto p-6 self-start"><img class="xl:relative xl:-top-20 mx-auto" src="{{ url_for('static', path='gradia-assets/images/hero/avatar-message.png') }}" alt="avatar-message"></div>
         <div class="flex-1 p-6">
           <div class="lg:max-w-2xl mx-auto">
             <div class="mb-6 font-heading flex items-center max-w-max mx-auto px-5 py-2.5 uppercase font-semibold text-xs tracking-px text-white bg-white bg-opacity-20 rounded-lg">
@@ -113,7 +113,7 @@
               </li>
             </ul></div>
         </div>
-        <div class="w-full lg:w-auto p-6 self-end"><img class="xl:relative xl:-bottom-10 mx-auto" src="gradia-assets/images/hero/avatar-message2.png" alt="avatar-message2"></div>
+        <div class="w-full lg:w-auto p-6 self-end"><img class="xl:relative xl:-bottom-10 mx-auto" src="{{ url_for('static', path='gradia-assets/images/hero/avatar-message2.png') }}" alt="avatar-message2"></div>
         </div>
         </div>
       </section>
@@ -125,7 +125,7 @@
           <div class="w-full md:w-1/3 p-7">
             <div class="h-full p-0.5 bg-gradient-cyan rounded-10 transform hover:-translate-y-3 transition ease-out duration-1000">
               <div class="h-full p-8 bg-white rounded-lg" contenteditable="false">
-                <img class="relative -left-2 mb-12" src="gradia-assets/images/features/chart.png" alt=""><h3 class="mb-5 font-heading font-bold text-gray-900 text-xl" contenteditable="false">Don't sweat the simple</h3>
+                <img class="relative -left-2 mb-12" src="{{ url_for('static', path='gradia-assets/images/features/chart.png') }}" alt=""><h3 class="mb-5 font-heading font-bold text-gray-900 text-xl" contenteditable="false">Don't sweat the simple</h3>
                 <p class="text-gray-600" contenteditable="false">Handle clarification and complex questions like a champ - Don't loose revenue over people who don't read.</p>
               </div>
             </div>
@@ -133,7 +133,7 @@
           <div class="w-full md:w-1/3 p-7">
             <div class="h-full p-0.5 bg-gradient-cyan rounded-10 transform hover:-translate-y-3 transition ease-out duration-1000">
               <div class="h-full p-8 bg-white rounded-lg" contenteditable="false">
-                <img class="relative -left-2 mb-12" src="gradia-assets/images/features/messages.png" alt=""><h3 class="mb-5 font-heading font-bold text-gray-900 text-xl" contenteditable="false">Chat with personalization</h3>
+                <img class="relative -left-2 mb-12" src="{{ url_for('static', path='gradia-assets/images/features/messages.png') }}" alt=""><h3 class="mb-5 font-heading font-bold text-gray-900 text-xl" contenteditable="false">Chat with personalization</h3>
                 <p class="text-gray-600" contenteditable="false">Leverage an AI expert to help customers decide what to buy.</p>
               </div>
             </div>
@@ -141,7 +141,7 @@
           <div class="w-full md:w-1/3 p-7">
             <div class="h-full p-0.5 bg-gradient-cyan rounded-10 transform hover:-translate-y-3 transition ease-out duration-1000">
               <div class="h-full p-8 bg-white rounded-lg">
-                <img class="relative -left-2 mb-12" src="gradia-assets/images/features/warning.png" alt=""><h3 class="mb-5 font-heading font-bold text-gray-900 text-xl" contenteditable="false">Help instantly</h3>
+                <img class="relative -left-2 mb-12" src="{{ url_for('static', path='gradia-assets/images/features/warning.png') }}" alt=""><h3 class="mb-5 font-heading font-bold text-gray-900 text-xl" contenteditable="false">Help instantly</h3>
                 <p class="text-gray-600">Even if away, customers can call or chat and receive personalized advice on any of your products.</p>
               </div>
             </div>
@@ -175,7 +175,7 @@
             </div>
             <div class="flex flex-wrap -m-11">
               <div class="w-full md:w-1/2 p-11">
-                <img class="mx-auto" src="gradia-assets/images/how-it-works/illustration.png" alt="">
+                <img class="mx-auto" src="{{ url_for('static', path='gradia-assets/images/how-it-works/illustration.png') }}" alt="">
               </div>
               <div class="w-full md:w-1/2 p-11">
                 <h2 class="mb-6 font-heading font-bold text-5xl text-gray-900">Know who you helped</h2>
@@ -227,13 +227,13 @@
       </section>
                 
       <section class="relative py-24 overflow-hidden">
-        <img class="absolute bottom-0 left-0" src="gradia-assets/elements/footers/radial.svg" alt="">
+        <img class="absolute bottom-0 left-0" src="{{ url_for('static', path='gradia-assets/elements/footers/radial.svg') }}" alt="">
         <div class="relative z-10 container mx-auto px-4">
           <div class="flex flex-wrap -m-6">
             <div class="w-full md:w-1/2 lg:w-5/12 p-6">
               <div class="flex flex-col justify-between h-full">
                 <div>
-                  <img class="mb-16 h-16" src="images/black.png" alt="">
+                  <img class="mb-16 h-16" src="{{ url_for('static', path='images/black.png') }}" alt="">
                 </div>
                 <div>
                   <p class="mb-4 font-heading font-medium text-base">Support while you sleep.</p>
