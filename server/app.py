@@ -17,11 +17,15 @@ async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-@app.post("/sync-site")
-async def search(request: Request, query: str = Form()):
-    # perform search logic
-    results = ["Result 1", "Result 2", "Result 3"]
-    return templates.TemplateResponse("search.html", {"request": request, "query": query, "results": results})
+@app.get("/sync-site")
+async def index(request: Request):
+    return templates.TemplateResponse("process.html", {"request": request})
+
+@app.post("/sync-site", response_class=HTMLResponse)
+async def sync_site(request: Request, url_input: str = Form()):
+    # Here you can do something with the submitted URL
+    return templates.TemplateResponse("process.html", {"request": request, "query": url_input, "status": "Successfully synced "+url_input"!"})
+
 '''
 templates = Jinja2Templates(directory="templates")
 
