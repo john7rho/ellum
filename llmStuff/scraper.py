@@ -6,7 +6,7 @@ def replaceNewLines(text):
 
 quote_page = "https://upakka.com/www.upakka.com/index.html"
 page = urlopen(quote_page)
-soup = BeautifulSoup(page) 
+soup = BeautifulSoup(page)
 txt = replaceNewLines(soup.get_text())
 with open("output.txt", "w") as f:
     for token in txt:
