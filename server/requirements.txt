@@ -135,3 +135,4 @@ yappi==1.4.0
 zipp==3.14.0
 mangum
 python-multipart
+gunicorn
