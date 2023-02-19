@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add your website | Automate support in your sleep.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', path='../static/css/tailwind/tailwind.min.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='images/white.png') }}">
+
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+</head>
+<body class="antialiased bg-body text-body font-body">
+    <div class="">
+                
+      <section class="overflow-hidden">
+        <div class="flex items-center justify-between px-8 py-5 bg-white">
+          <div class="w-auto">
+            <div class="flex flex-wrap items-center">
+              <div class="w-auto mr-14">
+                <a href="#">
+                  <img src="{{ url_for('static', path='images/black.png') }}" alt="">FIX
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="w-auto">
+            <div class="flex flex-wrap items-center">
+              <div class="w-auto hidden lg:block">
+                <ul class="flex items-center mr-10">
+                  <li class="font-heading mr-9 text-gray-900 hover:text-gray-700 text-lg"><a href="#">Features</a></li>
+                  <li class="font-heading mr-9 text-gray-900 hover:text-gray-700 text-lg"><a href="#">Solutions</a></li>
+                  <li class="font-heading mr-9 text-gray-900 hover:text-gray-700 text-lg"><a href="#">Resources</a></li>
+                  <li class="font-heading text-gray-900 hover:text-gray-700 text-lg"><a href="#">Pricing</a></li>
+                </ul>
+              </div>
+              <div class="w-auto hidden lg:block">
+                <button class="group relative p-0.5 font-heading block w-full md:w-auto text-lg text-gray-900 font-medium bg-gradient-cyan overflow-hidden rounded-10">
+                  <div class="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full bg-gradient-cyan transition ease-in-out duration-500"></div>
+                  <div class="py-2 px-5 bg-white rounded-lg">
+                    <p class="relative z-10">Start Free Trial</p>
+                  </div>
+                </button>
+              </div>
+              <div class="w-auto lg:hidden">
+                <a href="#">
+                  <svg class="navbar-burger text-gray-800" width="51" height="51" viewbox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="56" height="56" rx="28" fill="currentColor"></rect>
+                    <path d="M37 32H19M37 24H19" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50">
+          <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-80"></div>
+          <nav class="relative z-10 px-9 py-8 bg-white h-full">
+            <div class="flex flex-wrap justify-between h-full">
+              <div class="w-full">
+                <div class="flex items-center justify-between -m-2">
+                  <div class="w-auto p-2">
+                    <a class="inline-block" href="#">
+                      <img src="{{ url_for('static', path='images/black.png') }}" alt="">
+                    </a>
+                  </div>
+                  <div class="w-auto p-2">
+                    <a class="navbar-burger" href="#">
+                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col justify-center py-8 w-full">
+                <ul>
+                  <li class="mb-12"><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="#">Features</a></li>
+                  <li class="mb-12"><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="#">Solutions</a></li>
+                  <li class="mb-12"><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="#">Resources</a></li>
+                  <li><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="#">Pricing</a></li>
+                </ul>
+              </div>
+              <div class="flex flex-col justify-end w-full">
+                <div class="flex flex-wrap">
+                  <div class="w-full mb-3">
+                    <button class="p-0.5 font-heading block w-full text-lg text-gray-900 font-medium rounded-10">
+                      <div class="py-2 px-5 rounded-10">
+                        <p>Login</p>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="w-full">
+                    <button class="group relative p-0.5 font-heading block w-full text-lg text-gray-900 font-medium bg-gradient-cyan overflow-hidden rounded-10">
+                      <div class="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full bg-gradient-cyan transition ease-in-out duration-500"></div>
+                      <div class="py-2 px-5 bg-white rounded-lg">
+                        <p class="relative z-10">Start Free Trial</p>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </section>
+                
+      <section class="relative pt-16 pb-36 bg-gradient-gray2 overflow-hidden">
+        <img class="absolute top-0 transform left-1/2 -translate-x-1/2" src="{{ url_for('static', path='gradia-assets/elements/sign-up/radial2.svg') }}" alt="">
+        <div class="relative z-10 container mx-auto px-4">
+          <img class="mx-auto mb-40" src="{{ url_for('static', path='images/black.png') }}" alt="">
+          <div class="flex flex-wrap -m-6">
+            <div class="w-full p-6">
+              <div class="md:max-w-xl text-center mx-auto">
+                {% if request.method == "POST" %}
+                 <h2 class="mb-4 font-heading font-bold text-gray-900 text-6xl sm:text-7xl">{{ status }}</h2>
+    <p>Thanks for submitting! Feel free to call: (INSERT NUMBER)</p>
+{% else %}
+ <h2 class="mb-4 font-heading font-bold text-gray-900 text-6xl sm:text-7xl">Add my site.</h2>
+                <p class="mb-11 text-lg text-gray-500">Set up an assistant in no time, no code required.</p>
+
+               
+                {% endif %}
+              
+
+               {% if request.method == "POST" %}
+    <p>Thanks for submitting! Feel free to call: (INSERT NUMBER)</p>
+{% else %}
+   <form action="/sync-site" enctype='multipart/form-data'>
+                <div class="flex flex-wrap max-w-md mx-auto -m-2 mb-5">
+                  <div class="w-full p-2">
+                    <input class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg" type="URL" placeholder="https://amazingstore.com" name="URL" required>
+                  </div>
+                  <div class="w-full p-2">
+                    <div class="group relative">
+                      <div class="absolute top-0 left-0 w-full h-full bg-gradient-blue opacity-0 group-hover:opacity-50 rounded-lg transition ease-out duration-300"></div>
+                      <button class="p-1 w-full font-heading font-medium text-base text-white overflow-hidden rounded-md" type="submit">
+                        <div class="relative py-4 px-9 bg-gradient-blue overflow-hidden rounded-md">
+                          <div class="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full bg-gray-900 transition ease-in-out duration-500"></div>
+                          <p class="relative z-10">Let's do it</p>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+    </form>
+{% endif %}
+
+
+                <p class="text-base text-gray-600 hidden">
+                  <span>Don’t have an account?</span>
+                  <a class="text-gray-900 hover:text-gray-700" href="https://isitchristmas.com/" target="_blank">Create free account</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+     
+      <section class="relative py-24 overflow-hidden">
+        <img class="absolute bottom-0 left-0" src="{{ url_for('static', path='gradia-assets/elements/footers/radial.svg') }}" alt="">
+        <div class="relative z-10 container mx-auto px-4">
+          <div class="flex flex-wrap -m-6">
+            <div class="w-full md:w-1/2 lg:w-5/12 p-6">
+              <div class="flex flex-col justify-between h-full">
+                <div>
+                  <img class="mb-16 h-16" src="{{ url_for('static', path='images/black.png') }}" alt="">
+                </div>
+                <div>
+                  <p class="mb-4 font-heading font-medium text-base">Support while you sleep.</p>
+                  <p class="text-gray-600 text-sm"></p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-2/12 p-6">
+              <div class="h-full">
+                <h3 class="mb-9 font-heading font-semibold text-xs text-gray-500 uppercase tracking-px">Company</h3>
+                <ul>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Features</a></li>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Pricing</a></li>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Affiliate Program</a></li>
+                  <li><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Press Kit</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-2/12 p-6">
+              <div class="h-full">
+                <h3 class="mb-9 font-heading font-semibold text-xs text-gray-500 uppercase tracking-px">Support</h3>
+                <ul>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Account</a></li>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Help</a></li>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Chat With Us</a></li>
+                  <li><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Call Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-3/12 p-6">
+              <div class="h-full">
+                <h3 class="mb-9 font-heading font-semibold text-xs text-gray-500 uppercase tracking-px">LEGAL</h3>
+                <ul>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Terms &amp; Conditions</a></li>
+                  <li class="mb-4"><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Privacy Policy</a></li>
+                  <li><a class="font-heading font-medium text-base text-gray-900 hover:text-gray-700" href="#">Licensing</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+</body>
+</html>
+
