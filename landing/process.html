@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/tailwind/tailwind.min.css') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
-    <script src="js/main.js"></script>
+
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
 </head>
 <body class="antialiased bg-body text-body font-body">
     <div class="">
@@ -20,7 +21,7 @@
             <div class="flex flex-wrap items-center">
               <div class="w-auto mr-14">
                 <a href="#">
-                  <img src="gradia-assets/logos/gradia-name-black.svg" alt="">
+                  <img src="{{ url_for('static', path='gradia-assets/logos/gradia-name-black.svg') }}" alt="">FIX
                 </a>
               </div>
             </div>
