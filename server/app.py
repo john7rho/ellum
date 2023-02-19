@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Request, Form, WebSocket
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from mangum import Mangum
 import asyncio, json, uuid, boto3
@@ -6,12 +8,20 @@ from botocore.exceptions import ClientError
  
 app = FastAPI()
  
- 
+
+# Mount the 'static' and 'templates' directories to serve static files and templates
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 @app.get("/")
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
+@app.post("/sync-site")
+async def search(request: Request, query: str = Form()):
+    # perform search logic
+    results = ["Result 1", "Result 2", "Result 3"]
+    return templates.TemplateResponse("search.html", {"request": request, "query": query, "results": results})
 '''
 templates = Jinja2Templates(directory="templates")
 
