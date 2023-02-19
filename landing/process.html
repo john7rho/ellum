@@ -114,11 +114,15 @@
             <div class="w-full p-6">
               <div class="md:max-w-xl text-center mx-auto">
                 {% if request.method == "POST" %}
+                 <h2 class="mb-4 font-heading font-bold text-gray-900 text-6xl sm:text-7xl">{{ status }}</h2>
     <p>Thanks for submitting! Feel free to call: (INSERT NUMBER)</p>
 {% else %}
-                <h2 class="mb-4 font-heading font-bold text-gray-900 text-6xl sm:text-7xl">{{ status }}</h2>
-                {% endif %}
+ <h2 class="mb-4 font-heading font-bold text-gray-900 text-6xl sm:text-7xl">Add my site.</h2>
                 <p class="mb-11 text-lg text-gray-500">Set up an assistant in no time, no code required.</p>
+
+               
+                {% endif %}
+              
 
                {% if request.method == "POST" %}
     <p>Thanks for submitting! Feel free to call: (INSERT NUMBER)</p>
