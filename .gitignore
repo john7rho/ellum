@@ -1,3 +1,4 @@
 env
 myEnv
 venv
+.env
