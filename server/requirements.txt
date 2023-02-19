@@ -1,9 +1,11 @@
 alembic==1.9.4
+aiohttp
 amqp==5.1.1
 appdirs==1.4.4
 attrs==22.2.0
 automaton==3.1.0
 autopage==0.5.1
+boto3
 Babel==2.11.0
 bcrypt==4.0.1
 cachetools==5.3.0
@@ -20,6 +22,7 @@ docker==6.0.1
 dogpile.cache==1.1.8
 eventlet==0.33.3
 extras==1.0.0
+fastapi
 fasteners==0.18
 fixtures==4.0.1
 futurist==2.4.1
@@ -118,6 +121,7 @@ testscenarios==0.5.0
 testtools==2.5.0
 typing_extensions==4.5.0
 urllib3==1.26.14
+uvicorn
 vine==5.0.0
 warlock==2.0.1
 wcwidth==0.2.6
@@ -129,3 +133,5 @@ wrapt==1.14.1
 WSME==0.11.0
 yappi==1.4.0
 zipp==3.14.0
+mangum
+python-multipart
