@@ -24,7 +24,7 @@ async def index(request: Request):
 @app.post("/sync-site", response_class=HTMLResponse)
 async def sync_site(request: Request, url_input: str = Form()):
     # Here you can do something with the submitted URL
-    return templates.TemplateResponse("process.html", {"request": request, "query": url_input, "status": "Successfully synced "+url_input"!"})
+    return templates.TemplateResponse("process.html", {"request": request, "query": url_input, "status": "Successfully synced "+str(url_input)+"!"})
 
 '''
 templates = Jinja2Templates(directory="templates")
