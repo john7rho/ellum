@@ -81,6 +81,7 @@ async def transcribe_audio(language_code: str, websocket: WebSocket):
             results = response.get("Transcript", {}).get("Results", [])
 
             for result in results:
+                # https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html
                 if result.get("IsPartial") == False and result.get("Alternatives"):
                     new_transcript = result["Alternatives"][0]["Transcript"]
                     confidence = result["Alternatives"][0]["Confidence"]
@@ -91,12 +92,18 @@ async def transcribe_audio(language_code: str, websocket: WebSocket):
                     if time_diff > pause_threshold:
                         # Send the transcript to the external API
                         async with aiohttp.ClientSession() as session:
-                            url = "https://adityarai10101--vectordbqaadi-queryreal.modal.run/?x=how+many+products+do+you+sell"
+                            utterance = re.search('/[^\w\s!?]/g', new_transcript).group(1)
+                            utterance.replace(" ", "+") #may need to fix
+                            # http://www.compciv.org/guides/python/how-tos/creating-proper-url-query-strings/
+                            # https://stackoverflow.com/questions/12343451/how-to-remove-everything-but-letters-numbers-space-exclamation-and-question-m
+                            # https://stackoverflow.com/questions/1327369/extract-part-of-a-regex-match
+
+                            url = "https://adityarai10101--vectordbqaadi-queryreal.modal.run/?x=" +str(utterance)
                             payload = {"transcription": transcript, "confidence": confidence}
                             async with session.post(url, json=payload) as response:
                                 pass
 
-                        # Yield the transcript to the client
+                        # Yield the transcript to the client -> gunna be the poly audio clip to play back to the consumer or relevant api information on yield async carefully juicy
                         yield f"Transcription: {transcript} (Confidence: {confidence})\n"
 
                         # Reset variables for the next speaker
