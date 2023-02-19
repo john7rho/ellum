@@ -1,11 +1,13 @@
-from fastapi import FastAPI, Request, Form, WebSocket
+from fastapi import FastAPI, Request, Form, WebSocket, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from mangum import Mangum
 import asyncio, json, uuid, boto3
 from botocore.exceptions import ClientError
- 
+import requests
+
+
 app = FastAPI()
  
 templates = Jinja2Templates(directory="templates")
@@ -20,11 +22,18 @@ async def index(request: Request):
 
 @app.get("/sync-site")
 async def index(request: Request):
+
     return templates.TemplateResponse("process.html", {"request": request})
 
 @app.post("/sync-site", response_class=HTMLResponse)
 async def sync_site(request: Request, url_input: str = Form()):
     # Here you can do something with the submitted URL
+    if url_input != "":
+        cache_data = "https://adityarai10101--vectordbqaadi-queryurl.modal.run/?url="+str(url_input)
+        print(requests.get(cache_data))
+    else:
+        raise HTTPException(status_code=404, detail="URL cannot be empty")
+        
     return templates.TemplateResponse("process.html", {"request": request, "query": url_input, "status": "Successfully synced "+str(url_input)+"!"})
 
 '''
