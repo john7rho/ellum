@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from mangum import Mangum
 import asyncio, json, uuid, boto3, aiohttp
-from botocore.exceptions import ClientError
+from botocore.exceptions import ClientError, BotoCoreError
 import requests
 
 
@@ -57,7 +57,10 @@ async def search(request: Request, query: str = Form(...)):
 async def transcribe_audio(language_code: str, websocket: WebSocket):
     try:
         # Create an Amazon Transcribe streaming client
-        client = boto3.client('transcribe', region_name='us-east-1')
+        client = boto3.client('transcribe', region_name='us-west-2')
+
+        # Create an Amazon Polly client
+        polly_client = boto3.client('polly', region_name='us-west-2')
 
         # Generate a unique identifier for this transcription job
         job_name = str(uuid.uuid4())
@@ -103,8 +106,22 @@ async def transcribe_audio(language_code: str, websocket: WebSocket):
                             async with session.post(url, json=payload) as response:
                                 pass
 
+                        # Synthesize speech from the transcript using Amazon Polly
+                        response = polly_client.synthesize_speech(
+                            Text=transcript,
+                            OutputFormat='pcm',
+                            VoiceId='Joanna'
+                        )
+
+                        # Convert the audio stream to a byte stream
+                        audio_stream = response['AudioStream'].read()
+
+                        # Yield the audio stream to the client
+                        yield BytesIO(audio_stream).read()
+
+
                         # Yield the transcript to the client -> gunna be the poly audio clip to play back to the consumer or relevant api information on yield async carefully juicy
-                        yield f"Transcription: {transcript} (Confidence: {confidence})\n"
+                        #yield f"Transcription: {transcript} (Confidence: {confidence})\n"
 
                         # Reset variables for the next speaker
                         transcript = ""
@@ -115,6 +132,8 @@ async def transcribe_audio(language_code: str, websocket: WebSocket):
 
     except ClientError as e:
         logger.exception(f"Transcription job {job_name} failed: {e}")
+    except BotoCoreError as e:
+        logger.exception(f"Error synthesizing speech with Amazon Polly: {e}")
     except Exception as e:
         logger.exception(f"Transcription job {job_name} failed: {e}")
 
