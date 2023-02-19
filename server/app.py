@@ -30,10 +30,11 @@ async def sync_site(request: Request, url_input: str = Form()):
     # Here you can do something with the submitted URL
     if url_input != "":
         cache_data = "https://adityarai10101--vectordbqaadi-queryurl.modal.run/?url="+str(url_input)
-        print(requests.get(cache_data))
+        sync_cache = requests.get(cache_data)
+        print(sync_cache)
     else:
         raise HTTPException(status_code=404, detail="URL cannot be empty")
-        
+
     return templates.TemplateResponse("process.html", {"request": request, "query": url_input, "status": "Successfully synced "+str(url_input)+"!"})
 
 '''
