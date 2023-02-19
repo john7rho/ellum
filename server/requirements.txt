@@ -7,7 +7,7 @@ autopage==0.5.1
 Babel==2.11.0
 bcrypt==4.0.1
 cachetools==5.3.0
-certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
+certifi
 cffi==1.15.1
 charset-normalizer==3.0.1
 cliff==4.2.0
@@ -94,7 +94,7 @@ python-octaviaclient==3.3.0
 python-openstackclient==6.0.0
 python-swiftclient==4.1.0
 pytz==2022.7.1
-pywin32==305
+# pywin32==305
 PyYAML==6.0
 repoze.lru==0.7
 requests==2.28.2
