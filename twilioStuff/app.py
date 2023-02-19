@@ -2,13 +2,18 @@ import base64
 import json
 import logging
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_sockets import Sockets
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 sockets = Sockets(app)
 
 HTTP_SERVER_PORT = 5000
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @sockets.route('/media')
 def echo(ws):
