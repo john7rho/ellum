@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, Form, WebSocket, HTTPException
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from mangum import Mangum
@@ -50,6 +50,7 @@ async def search(request: Request, query: str = Form(...)):
     results = ["Result 1", "Result 2", "Result 3"]
     return templates.TemplateResponse("search.html", {"request": request, "query": query, "results": results})
 '''
+#https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse
 
 @app.websocket("/audio")
 async def audio(websocket: WebSocket):
@@ -108,5 +109,64 @@ async def audio(websocket: WebSocket):
         await websocket.send_text(f"Error: {e}")
  
 
+
+app = FastAPI()
+
+async def transcribe_audio(language_code: str, websocket: WebSocket):
+    try:
+        # Create an Amazon Transcribe streaming client
+        client = boto3.client('transcribe', region_name='us-east-1')
+
+        # Generate a unique identifier for this transcription job
+        job_name = str(uuid.uuid4())
+
+        # Start the transcription job
+        response = client.start_stream_transcription(
+            LanguageCode=language_code,
+            MediaSampleRateHertz=16000,
+            MediaEncoding='pcm',
+            AudioStream=websocket
+        )
+
+        # Initialize variables for speaker detection algorithm
+        transcript = ""
+        last_event_time = 0
+        pause_threshold = 1.5  # Pause duration threshold in seconds
+
+        # Keep streaming the audio data to Transcribe and handle the results
+        async for message in websocket.iter_text():
+            response = json.loads(message)
+            results = response.get("Transcript", {}).get("Results", [])
+
+            for result in results:
+                if result.get("Alternatives"):
+                    new_transcript = result["Alternatives"][0]["Transcript"]
+                    confidence = result["Alternatives"][0]["Confidence"]
+                    transcript += new_transcript
+
+                    # Check if the speaker has stopped speaking
+                    time_diff = result["ResultEndTime"] - last_event_time
+                    if time_diff > pause_threshold:
+                        # Yield the transcript to the client
+                        yield f"Transcription: {transcript} (Confidence: {confidence})\n"
+
+                        # Reset variables for the next speaker
+                        transcript = ""
+                    last_event_time = result["ResultEndTime"]
+
+            # Release the event loop to allow other coroutines to run
+            await asyncio.sleep(0)
+
+    except ClientError as e:
+        logger.exception(f"Transcription job {job_name} failed: {e}")
+    except Exception as e:
+        logger.exception(f"Transcription job {job_name} failed: {e}")
+
+@app.websocket("/audio")
+async def audio(websocket: WebSocket):
+    language_code = "en-US"
+
+    # Return the transcription as a stream of responses
+    return StreamingResponse(transcribe_audio(language_code, websocket))
 
 handler = Mangum(app)
